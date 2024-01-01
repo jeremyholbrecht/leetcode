@@ -8,5 +8,4 @@ import (
 
 func main() {
 	fmt.Println(problem0001.TwoSum([]int{2, 7, 11, 15}, 9))
-	fmt.Println("test commit")
 }
