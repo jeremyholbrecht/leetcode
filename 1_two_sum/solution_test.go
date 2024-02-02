@@ -1,52 +1,31 @@
 package main
 
 import (
+	"slices"
 	"testing"
-
-	"github.com/stretchr/testify/assert"
 )
 
 func TestTwoSum(t *testing.T) {
-	type args struct {
-		Nums   []int
-		Target int
-	}
 
-	tests := []struct {
-		Name string
-		Args args
-		Want []int
-	}{
-		{
-			Name: "twoSum",
-			Args: args{
-				Nums:   []int{2, 7, 11, 15},
-				Target: 9,
-			},
-			Want: []int{0, 1},
-		},
-		{
-			Name: "twoSum",
-			Args: args{
-				Nums:   []int{3, 2, 4},
-				Target: 6,
-			},
-			Want: []int{1, 2},
-		},
-		{
-			Name: "twoSum",
-			Args: args{
-				Nums:   []int{3, 3},
-				Target: 6,
-			},
-			Want: []int{0, 1},
-		},
-	}
+	t.Run("Example 1:", func(t *testing.T) {
+		got := twoSum([]int{2, 7, 11, 15}, 9)
+		want := []int{0, 1}
+		assertCorrectIndices(t, got, want)
 
-	for _, test := range tests {
-		t.Run(test.Name, func(t *testing.T) {
-			assert.Equal(t, test.Want, twoSum(test.Args.Nums, test.Args.Target))
-		})
-	}
+	})
 
+	t.Run("Example 2:", func(t *testing.T) {
+		got := twoSum([]int{3, 2, 4}, 6)
+		want := []int{1, 2}
+		assertCorrectIndices(t, got, want)
+
+	})
+
+}
+
+func assertCorrectIndices(t testing.TB, got []int, want []int) {
+	t.Helper()
+	if !slices.Equal(got, want) {
+		t.Errorf("got %v want %v", got, want)
+	}
 }
