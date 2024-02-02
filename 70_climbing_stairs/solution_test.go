@@ -13,6 +13,6 @@ func TestClimbStairs(t *testing.T) {
 func assertCorretAmountOfDistinctWays(t testing.TB, got int, want int) {
 	t.Helper()
 	if got != want {
-		t.Errorf("got %v", "want %v", got, want)
+		t.Errorf("expected %d but got %d", got, want)
 	}
 }
