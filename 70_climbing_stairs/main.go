@@ -17,6 +17,8 @@ func climbStairs(n int) int {
 
 }
 
+//TODO: research fibonacci
+
 func main() {
 	climbStairs(5)
 }
